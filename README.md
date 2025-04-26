@@ -15,7 +15,7 @@ Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?fi
 - git
 - python3
 - virtualenv
-- sqlite3
+- mysql https://www.w3schools.com/python/python_mysql_getstarted.asp
 
 # Implementation
 - Clone
@@ -26,4 +26,13 @@ Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?fi
 # Git commands
 - git status
 - git add --all
+- git commit -m "added readme"
+- git push origin main
+- git pull origin main
 
+# Virtual Env Start and Stop
+- Start: source animegress-venv/Scripts/activate
+- Stop: deactivate
+
+# py env contains 
+- 
