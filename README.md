@@ -17,6 +17,9 @@ Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?fi
 - virtualenv
 - sqlite (which has been included with python)
 
+# Extension needed
+SQLite https://marketplace.visualstudio.com/items/?itemName=alexcvzz.vscode-sqlite
+
 # Implementation
 - Clone
 - Create a virtual env
