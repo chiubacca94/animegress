@@ -18,8 +18,8 @@ Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?fi
 - sqlite (which has been included with python)
 
 # Extension needed
-SQLite https://marketplace.visualstudio.com/items/?itemName=alexcvzz.vscode-sqlite
-
+- SQLite https://marketplace.visualstudio.com/items/?itemName=alexcvzz.vscode-sqlite
+- SQLite Viewer: https://marketplace.visualstudio.com/items/?itemName=qwtel.sqlite-viewer
 # Implementation
 - Clone
 - Create a virtual env
