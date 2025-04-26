@@ -15,7 +15,7 @@ Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?fi
 - git
 - python3
 - virtualenv
-- mysql https://www.w3schools.com/python/python_mysql_getstarted.asp
+- sqlite (which has been included with python)
 
 # Implementation
 - Clone
