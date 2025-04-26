@@ -2,14 +2,14 @@
 Store progress on anime show
 
 # TO DO 
-1. Get all animes and progresses from a user
-2. Add anime (name, total, watched_episodes -- init at 0)
-3. Update the anime (name, watched_episodes)
+1. Get all animes and progresses - from a user
+2. Add anime (name, total, progress -- init at 0)  - to an existing back end database
+3. Update the anime (name, progress) - to the back end database, progress will the user inputed value
 4. Delete an anime
 5. Get a single anime progress (return a percent)
 
 # User
-- Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?filename=demo_ref_input
+Prompt input looks like this: https://www.w3schools.com/python/showpython.asp?filename=demo_ref_input
 
 # Technologies
 - git
@@ -20,7 +20,6 @@ Store progress on anime show
 # Extension needed
 - SQLite https://marketplace.visualstudio.com/items/?itemName=alexcvzz.vscode-sqlite
 - SQLite Viewer: https://marketplace.visualstudio.com/items/?itemName=qwtel.sqlite-viewer
-
 # Implementation
 - Clone
 - Create a virtual env
@@ -33,6 +32,7 @@ Store progress on anime show
 - git commit -m "added readme"
 - git push origin main
 - git pull origin main
+- git checkout -b *name of branch* origin/main
 
 # Virtual Env Start and Stop
 - Start: source animegress-venv/Scripts/activate
