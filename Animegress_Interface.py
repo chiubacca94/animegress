@@ -2,9 +2,8 @@ from Sqlite_Interface import Sqlite_Interface
 
 class AnimegressInterface:
 
-    # sqlite_interface = Sqlite_Interface()
-
     def __init__(self):
+        self.sqlite_interface = Sqlite_Interface()
         pass
 
     def echo_anime(self, anime_name, total_episodes, watched_episodes):
@@ -21,5 +20,10 @@ class AnimegressInterface:
         if total_episodes < 0:
             raise ValueError("Total episodes cannot be negative.")
         
-        self.sqlite_interface.add_anime(anime_name, total_episodes, 0)
+        results = self.sqlite_interface.add_anime(anime_name, total_episodes, 0)
+        if results == True:  
+            return(anime_name + " added sucessfully")
+        else:
+            return(anime_name + " not added")
 
+# when called, 
