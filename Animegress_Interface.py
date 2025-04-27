@@ -20,10 +20,24 @@ class AnimegressInterface:
         if total_episodes < 0:
             raise ValueError("Total episodes cannot be negative.")
         
-        results = self.sqlite_interface.add_anime(anime_name, total_episodes, 0)
+        Doesanimeexist = self.sqlite_interface.anime_exists(anime_name)
+        if Doesanimeexist == True:
+            raise ValueError("Anime already exists")
+        
+        results = self.sqlite_interface.add_anime(anime_name, total_episodes, watched_episodes)
         if results == True:  
             return(anime_name + " added sucessfully")
         else:
             return(anime_name + " not added")
+        
+    def update_anime(self, anime_name, watched_episodes):
+        if not self.sqlite_interface.anime_exists(anime_name):
+                return False
+
+        updated = self.sqlite_interface.update_anime(anime_name, watched_episodes)
+        if updated == True:
+            return(anime_name + " is now updated and you've now watched" + str(watched_episodes) + "episodes")
+        else:
+            return (anime_name + "not updated")
 
 # when called, 
