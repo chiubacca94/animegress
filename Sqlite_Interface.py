@@ -28,4 +28,30 @@ class Sqlite_Interface:
         self.con.commit()
         return True
 
+    def anime_exists(self, anime_name):
+        self.cursor.execute("SELECT 1 FROM anime WHERE anime_name = ?", (anime_name,))
+        return self.cursor.fetchone() is not None 
        
+    def update_anime(self, anime_name, watched_episodes):
+
+        if not self.anime_exists(anime_name):
+            return False 
+
+        self.cursor.execute(
+            "UPDATE anime SET watched_episodes = ? WHERE anime_name = ?",
+            (watched_episodes, anime_name)
+        )
+        self.con.commit()
+        return True
+    
+    def delete_anime(self, anime_name):
+
+        if not self.anime_exists(anime_name):
+            return False
+
+        self.cursor.execute(
+            "DELETE FROM anime WHERE anime_name = ?",
+            (anime_name,)
+        )
+        self.con.commit()
+        return True
