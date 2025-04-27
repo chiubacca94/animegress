@@ -40,4 +40,16 @@ class AnimegressInterface:
         else:
             return (anime_name + "not updated")
 
+    def delete_anime(self, anime_name):
+        Doesanimeexist = self.sqlite_interface.anime_exists(anime_name)
+        if Doesanimeexist == False:
+            raise ValueError("Anime doesnt exist")
+        
+        deleteanime = self.sqlite_interface.delete_anime(anime_name)
+        if deleteanime:
+            return(anime_name + " is now deleted")
+        else:
+            return(anime_name + "cant be deleted")
+        
+
 # when called, 
