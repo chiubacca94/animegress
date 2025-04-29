@@ -16,6 +16,8 @@ class AnimegressInterface:
     
         return f"Anime: {anime_name}, Total Episodes: {total_episodes}, Watched Episodes: {watched_episodes}"
 
+
+#add the anime to the DB
     def add_anime(self, anime_name, total_episodes, watched_episodes):
         if total_episodes < 0:
             raise ValueError("Total episodes cannot be negative.")
@@ -30,6 +32,7 @@ class AnimegressInterface:
         else:
             return(anime_name + " not added")
         
+#updates the anime with how many episodes you've watched
     def update_anime(self, anime_name, watched_episodes):
         if not self.sqlite_interface.anime_exists(anime_name):
                 return False
@@ -40,6 +43,7 @@ class AnimegressInterface:
         else:
             return (anime_name + "not updated")
 
+#deletes the anime
     def delete_anime(self, anime_name):
         Doesanimeexist = self.sqlite_interface.anime_exists(anime_name)
         if Doesanimeexist == False:
@@ -51,5 +55,41 @@ class AnimegressInterface:
         else:
             return(anime_name + "cant be deleted")
         
+#returns what % the anime is at right now
+    def anime_progress(self, anime_name):
+        progress = self.sqlite_interface.anime_progress(anime_name)
+        percentage = (progress["watched"]/progress["total"]) * 100
+        return round(percentage, 2)
 
-# when called, 
+
+
+#returns if anime is completed or not
+    def anime_completed(self, anime_name):
+        completion = self.sqlite_interface.anime_progress(anime_name)
+        percentage = (completion["watched"]/completion["total"]) * 100
+
+        if (completion["watched"]) == (completion["total"]):
+            return ("This anime is fully completed")
+        else:
+            return ("this anime is only " + str(percentage) + "% complete")
+        
+# list animes in the table
+    def anime_titles(self):
+        anime_list = self.sqlite_interface.getallanimes()
+
+        if not anime_list:
+            print("You are not watching any anime yet.")
+            return
+       
+        print("You are watching the following: ", end="")
+
+        for i in range(len(anime_list)):
+            if i == 0:
+                print (anime_list[i] ,end="")
+            elif i == (len(anime_list) - 1 ):
+                print(f", and {anime_list[i]}", end="")
+            else:
+                print(f", {anime_list[i]}", end="")
+
+
+
