@@ -9,12 +9,14 @@ while True:
     print("1. Add a new anime")
     print("2. Update existing anime")
     print("3. Delete an anime")
+    print("4. Get anime perctange")
+    print("5. print all animes in table")
 
-    choice = input("Pick 1 to add or 2 to update or 3 to delete:").strip()
+    choice = input("Pick 1-5 to do something: ").strip()
   
 
     match choice:
-            case "1":
+            case "1": #add a new anime
                 anime_name = input("Enter the anime name: ").strip()
 
                 try:    
@@ -37,7 +39,7 @@ while True:
                 print("Anime shown successfully.")
                 print(this_anime)
 
-            case "2":
+            case "2":  #update an anime 
                anime_name = input("Enter the anime name: ").strip()
                
                try:    
@@ -54,14 +56,25 @@ while True:
                print("anime updated sucessfully")
                print(updated_anime)
 
-            case "3":
+            case "3": #delete an anime
                 anime_name = input("Enter the anime name: ").strip()
                 deleteanime = anime.delete_anime(anime_name)
                 print("anime deleted")
                 print(deleteanime)
 
+            case "4": #whats the progress on all anime?
+                anime_name = input("Enter the anime name: ").strip()
+                progressanime = anime.anime_progress(anime_name)
+                completedanime = anime.anime_completed(anime_name)
+                print (progressanime)
+                print (completedanime)
+
+            case "5":  #print anime name list
+                anime.anime_titles()
+                print("\n")
+
             case default:
-                print("use 1 or 2 or 3 punk ass bitch")
+                print("use numbers punk ass bitch")
 
 
     continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
