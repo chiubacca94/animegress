@@ -24,11 +24,11 @@ class AnimegressInterface:
         
         Doesanimeexist = self.sqlite_interface.anime_exists(anime_name)
         if Doesanimeexist == True:
-            raise ValueError("Anime already exists")
+            raise ValueError("Sorry! Anime already exists")
         
         results = self.sqlite_interface.add_anime(anime_name, total_episodes, watched_episodes)
         if results == True:  
-            return(anime_name + " added sucessfully")
+            return(anime_name + " has been added sucessfully")
         else:
             return(anime_name + " not added")
         
@@ -39,21 +39,21 @@ class AnimegressInterface:
 
         updated = self.sqlite_interface.update_anime(anime_name, watched_episodes)
         if updated == True:
-            return(anime_name + " is now updated and you've now watched" + str(watched_episodes) + "episodes")
+            return(anime_name + " is now updated and you've now watched " + str(watched_episodes) + " episodes")
         else:
-            return (anime_name + "not updated")
+            return (anime_name + "not updated.")
 
 #deletes the anime
     def delete_anime(self, anime_name):
         Doesanimeexist = self.sqlite_interface.anime_exists(anime_name)
         if Doesanimeexist == False:
-            raise ValueError("Anime doesnt exist")
+            raise ValueError("Sorry! Anime doesnt exist.")
         
         deleteanime = self.sqlite_interface.delete_anime(anime_name)
         if deleteanime:
-            return(anime_name + " is now deleted")
+            return(anime_name + " is now deleted.")
         else:
-            return(anime_name + "cant be deleted")
+            return(anime_name + "cant be deleted.")
         
 #returns what % the anime is at right now
     def anime_progress(self, anime_name):
@@ -68,9 +68,9 @@ class AnimegressInterface:
         completion = self.sqlite_interface.anime_progress(anime_name)
         
         if (completion["watched"]) == (completion["total"]):
-            return ("This anime is fully completed")
+            return ("This anime is fully completed.")
         else:
-            return ("this anime is not complete")
+            return ("This anime is not complete")
         
 # list animes in the table
     def anime_titles(self):
@@ -86,9 +86,9 @@ class AnimegressInterface:
             if i == 0:
                 print (anime_list[i] ,end="")
             elif i == (len(anime_list) - 1 ):
-                print(f", and {anime_list[i]}", end="")
+                print(f", and {anime_list[i]}", end=".")
             else:
-                print(f", {anime_list[i]}", end="")
+                print(f", {anime_list[i]}", end=".")
 
 
 
