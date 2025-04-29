@@ -58,20 +58,19 @@ class AnimegressInterface:
 #returns what % the anime is at right now
     def anime_progress(self, anime_name):
         progress = self.sqlite_interface.anime_progress(anime_name)
-        percentage = (progress["watched"]/progress["total"]) * 100
-        return round(percentage, 2)
+        percentage = (progress["watched"]/progress["total"]) 
+        return (f'{percentage:.0%}')
 
 
 
 #returns if anime is completed or not
     def anime_completed(self, anime_name):
         completion = self.sqlite_interface.anime_progress(anime_name)
-        percentage = (completion["watched"]/completion["total"]) * 100
-
+        
         if (completion["watched"]) == (completion["total"]):
             return ("This anime is fully completed")
         else:
-            return ("this anime is only " + str(percentage) + "% complete")
+            return ("this anime is not complete")
         
 # list animes in the table
     def anime_titles(self):
