@@ -37,6 +37,7 @@ while True:
                 this_anime = anime.add_anime(anime_name, total_episodes, watched_episodes) 
 
                 print(this_anime)
+                print("\n")
 
             case "2":  #update an anime 
                anime_name = input("Enter the anime name: ").strip()
@@ -53,12 +54,13 @@ while True:
                
                updated_anime = anime.update_anime(anime_name,watched_episodes)
                print(updated_anime)
-
+               print("\n")
+               
             case "3": #delete an anime
                 anime_name = input("Enter the anime name: ").strip()
                 deleteanime = anime.delete_anime(anime_name)
-                print("Anime has been deleted sucessfully.")
                 print(deleteanime)
+                print("\n")
 
             case "4": #whats the progress on all anime?
                 anime_name = input("Enter the anime name: ").strip()
@@ -66,7 +68,8 @@ while True:
                 completedanime = anime.anime_completed(anime_name)
                 print (progressanime)
                 print (completedanime)
-
+                print("\n")
+                       
             case "5":  #print anime name list
                 anime.anime_titles()
                 print("\n")
