@@ -46,7 +46,7 @@ class Sqlite_Interface:
     def update_anime(self, anime_name, watched_episodes):
 
         if not self.anime_exists(anime_name):
-            return False 
+            return "Anime not found." 
 
         self.cursor.execute(
             "UPDATE anime SET watched_episodes = ? WHERE anime_name = ?",
@@ -61,7 +61,7 @@ class Sqlite_Interface:
     def delete_anime(self, anime_name):
 
         if not self.anime_exists(anime_name):
-            return False
+            return "Anime not found."
 
         self.cursor.execute(
             "DELETE FROM anime WHERE anime_name = ?",
@@ -75,7 +75,7 @@ class Sqlite_Interface:
     def anime_progress(self, anime_name):
 
         if not self.anime_exists(anime_name):
-            return "anime not found"
+            return "Anime not found."
            
         self.cursor.execute(
             "SELECT total_episodes, watched_episodes FROM anime WHERE anime_name = ?",

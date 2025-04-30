@@ -38,13 +38,8 @@ class AnimegressInterface:
 #-----------------------------------------------------------------------    
 #updates the anime with how many episodes you've watched
     def update_anime(self, anime_name, watched_episodes):
-
-   #     if not self.sqlite_interface.anime_exists(anime_name):
-    #        print("Anime doesn't exist.")
-     #       return False
-      #  else:
-       #     return True
-        
+        if not self.sqlite_interface.anime_exists(anime_name):
+            return False
 
         updated = self.sqlite_interface.update_anime(anime_name, watched_episodes)
         if updated == True:

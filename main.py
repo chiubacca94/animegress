@@ -20,19 +20,23 @@ while True:
             case "1": #add a new anime
                 anime_name = input("Enter the anime name: ").strip()
 
+                if anime.anime_real(anime_name) == False: #check if the anime exists
+                    print("Anime not found in database.")
+                    continue
+
                 try:    
                     total_episodes = int(input("Enter the total number of episodes: "))
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
                 except ValueError:
-                    print("total episodes must be numbers")
+                    print("Total episodes must be numbers.")
                     continue
                 
                 if total_episodes < 0 or watched_episodes < 0:
-                    print("cant be less than 0")
+                    print("Total episodes can't be less than 0.")
                     continue
 
                 if watched_episodes > total_episodes:
-                    print("cant be more than total episodes watched")
+                    print("Watched episodes can't be more than total episodes.")
                     continue
 
                 this_anime = anime.add_anime(anime_name, total_episodes, watched_episodes) 
@@ -47,23 +51,21 @@ while True:
                anime_name = input("Enter the anime name: ").strip()
                
                if anime.anime_real(anime_name) == False: #check if the anime exists
-                    print("anime not found")
+                    print("Anime not found in database.")
                     continue
-               
                
                try:    
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
                except ValueError:
-                    print("total episodes must be numbers")
+                    print("Total episodes must be numbers.")
                     continue
                
                if watched_episodes < 0:
-                    print("cant be less than 0")
+                    print("Watched episodes can't be less than 0.")
                     continue
                
                updated_anime = anime.update_anime(anime_name,watched_episodes)
-               print("anime updated sucessfully")
-               print(updated_anime)
+               print("Anime has updated sucessfully.")
                print("\n")
                
 #-----------------------------------------------------------------------
@@ -72,13 +74,12 @@ while True:
                 anime_name = input("Enter the anime name: ").strip()
 
                 if anime.anime_real(anime_name) == False: #check if the anime exists
-                    print("anime not found")
+                    print("Anime not found in database.")
                     continue
 
 
                 deleteanime = anime.delete_anime(anime_name)
-                print("anime deleted")
-                print(deleteanime)
+                print("Anime deleted successfully.")
                 print("\n")
 
 
@@ -87,9 +88,8 @@ while True:
                 anime_name = input("Enter the anime name: ").strip()
 
                 if anime.anime_real(anime_name) == False:  #check if the anime exists
-                    print("anime not found")
+                    print("Anime not found in database.")
                     continue
-
 
                 progressanime = anime.anime_progress(anime_name)
                 completedanime = anime.anime_completed(anime_name)
@@ -113,7 +113,7 @@ while True:
 
     continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
     if continue_choice != ("y"):
-        print("no more anime added")
+        print("No more anime will be added.  Thank you for your time.")
         print("\n")
         break
 
