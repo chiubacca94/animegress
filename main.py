@@ -21,7 +21,19 @@ while True:
 
                 try:    
                     total_episodes = int(input("Enter the total number of episodes: "))
+                    if (total_episodes < 1 or total_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000.")
+                        continue
+                except ValueError:
+                    print("Total episodes must be numbers.")
+                    continue
+
+
+                try:
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Total episodes entered must be between 0 and 3000")
+                        continue
                 except ValueError:
                     print("Total episodes in series must be number values.")
                     continue
@@ -44,6 +56,9 @@ while True:
                
                try:    
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000")
+                        continue
                except ValueError:
                     print("Total episodes in series must be number values.")
                     continue
