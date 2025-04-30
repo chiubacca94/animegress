@@ -3,6 +3,13 @@ from Animegress_Interface import AnimegressInterface
 anime = AnimegressInterface()
 
 
+print("===================================")
+print("      WELCOME TO ANIMEGRESS")
+print(" Track Your Anime Progress Easily ")
+print("===================================")
+print("Manage your anime, update progress, and track completion status.\n")
+print("===================================")
+
 while True:
 
     print("\nWhat would you like to do?")
@@ -19,11 +26,24 @@ while True:
     match choice:
             case "1": #add a new anime
                 anime_name = input("Enter the anime name: ").strip()
-
+                
                 try:    
                     total_episodes = int(input("Enter the total number of episodes: "))
-                    watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (total_episodes < 1 or total_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000.")
+                        continue
                 except ValueError:
+                    print("Total episodes must be numbers.")
+                    continue
+
+
+                try:
+                    watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Watched episodes entered must be between 0 and 3000")
+                        continue
+                except ValueError:
+                    print("total episodes must be numbers")
                     print("Total episodes must be numbers.")
                     continue
                 
@@ -52,6 +72,9 @@ while True:
                
                try:    
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000")
+                        continue
                except ValueError:
                     print("Total episodes must be numbers.")
                     continue
