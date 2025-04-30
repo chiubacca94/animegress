@@ -21,14 +21,27 @@ while True:
 
                 try:    
                     total_episodes = int(input("Enter the total number of episodes: "))
-                    watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (total_episodes < 1 or total_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000.")
+                        continue
                 except ValueError:
-                    print("total episodes must be numbers")
+                    print("Total episodes must be numbers.")
+                    continue
+
+
+                try:
+                    watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Total episodes entered must be between 0 and 3000")
+                        continue
+                except ValueError:
+                    print("Total episodes must be numbers.")
                     continue
                 
-                if total_episodes < 0 or watched_episodes < 0:
-                    print("cant be less than 0")
-                    continue
+                       #not needed anymore since previous condition checks for this 
+ #               if total_episodes < 0 or watched_episodes < 0:
+  #                  print("cant be less than 0")
+   #                 continue
 
                 if watched_episodes > total_episodes:
                     print("cant be more than total episodes watched")
@@ -44,13 +57,16 @@ while True:
                
                try:    
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
+                    if (watched_episodes < 0 or watched_episodes > 3000):
+                        print("Total episodes must be between 1 and 3000")
+                        continue
                except ValueError:
-                    print("total episodes must be numbers")
+                    print("Total episodes must be numbers")
                     continue
                
-               if watched_episodes < 0:
-                    print("cant be less than 0")
-                    continue
+        #       if watched_episodes < 0:
+         #           print("cant be less than 0")
+          #          continue
                
                updated_anime = anime.update_anime(anime_name,watched_episodes)
                print("anime updated sucessfully")
