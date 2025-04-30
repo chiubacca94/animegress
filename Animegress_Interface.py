@@ -32,7 +32,7 @@ class AnimegressInterface:
         if results == True:  
             return(anime_name + " added sucessfully")
         else:
-            return(anime_name + " not added")
+            return(anime_name + "is not added")
 
 
 #-----------------------------------------------------------------------    
