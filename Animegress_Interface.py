@@ -45,7 +45,7 @@ class AnimegressInterface:
         if updated == True:
             return(anime_name + " is now updated and you've now watched" + str(watched_episodes) + "episodes")
         else:
-            return (anime_name + "not updated")
+            return (anime_name + "is not updated")
 
 
 #-----------------------------------------------------------------------
