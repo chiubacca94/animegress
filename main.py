@@ -20,10 +20,6 @@ while True:
             case "1": #add a new anime
                 anime_name = input("Enter the anime name: ").strip()
 
-                if anime.anime_real(anime_name) == False: #check if the anime exists
-                    print("Anime not found in database.")
-                    continue
-
                 try:    
                     total_episodes = int(input("Enter the total number of episodes: "))
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
@@ -109,7 +105,6 @@ while True:
             case default:
                 print("use numbers punk ass bitch")
                 print("\n")
-
 
     continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
     if continue_choice != ("y"):
