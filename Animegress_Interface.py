@@ -41,9 +41,19 @@ class AnimegressInterface:
         if not self.sqlite_interface.anime_exists(anime_name):
             return False
 
+                #get total episodes
+        totalepisodes = self.sqlite_interface.anime_progress(anime_name)
+        total = totalepisodes["total"]
+
+        if watched_episodes > total:
+            return f"Error: Watched episodes ({watched_episodes}) exceed total episodes ({total})."
+        
+        if watched_episodes < 0:
+            return f"Error: Watched episodes ({watched_episodes}) cannot be negative."
+        
         updated = self.sqlite_interface.update_anime(anime_name, watched_episodes)
         if updated == True:
-            return(anime_name + " is now updated and you've now watched" + str(watched_episodes) + "episodes")
+            return(anime_name + " is now updated and you've now watched " + str(watched_episodes) + " episodes")
         else:
             return (anime_name + "is not updated")
 
