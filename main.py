@@ -10,7 +10,8 @@ print("===================================")
 print("Manage your anime, update progress, and track completion status.\n")
 print("===================================")
 
-while True:
+program = True
+while program == True:
 
     print("\nWhat would you like to do?")
     print("1. Add a new anime")
@@ -129,9 +130,18 @@ while True:
                 print("use numbers punk ass bitch")
                 print("\n")
 
-    continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
-    if continue_choice != ("y"):
-        print("No more anime will be added.  Thank you for your time.")
-        print("\n")
-        break
+
+    while True:
+        continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
+
+        if continue_choice == "y":
+            break
+        elif continue_choice == "n":
+            print("No more anime will be added.  Thank you for your time.")
+            program = False
+            break
+        else:
+            print("Please enter Y or N.")
+        
+
 
