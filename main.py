@@ -58,7 +58,6 @@ while program == True:
 
                 this_anime = anime.add_anime(anime_name, total_episodes, watched_episodes) 
 
-                print("Anime shown successfully.")
                 print(this_anime)
                 print("\n")
 
@@ -70,7 +69,8 @@ while program == True:
                if anime.anime_real(anime_name) == False: #check if the anime exists
                     print("Anime not found in database.")
                     continue
-               
+
+
                try:    
                     watched_episodes = int(input("Enter the number of episodes you have watched: "))
                     if (watched_episodes < 0 or watched_episodes > 3000):
@@ -85,7 +85,7 @@ while program == True:
                     continue
                
                updated_anime = anime.update_anime(anime_name,watched_episodes)
-               print("Anime has updated sucessfully.")
+               print(updated_anime)
                print("\n")
                
 #-----------------------------------------------------------------------
@@ -132,12 +132,12 @@ while program == True:
 
 
     while True:
-        continue_choice = input("Do you want to continue adding anime? (Y/N): ").strip().lower()
+        continue_choice = input("Do you want to return to the menu? (Y/N): ").strip().lower()
 
         if continue_choice == "y":
             break
         elif continue_choice == "n":
-            print("No more anime will be added.  Thank you for your time.")
+            print("No more changes will be occur.  Thank you for your time and using Animegress!")
             program = False
             break
         else:
